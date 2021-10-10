@@ -1,0 +1,45 @@
+body {
+    background-color: #18181b;
+}
+
+h1 {
+    padding: 10px;
+    text-align: center;
+}
+
+.card-form {
+    color: white;
+    margin: 50px 20px;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: #1f1f23;
+}
+
+.form-control {
+    color: white;
+    background-color: #313136;
+    border: 1px solid black;
+}
+
+.form-control:focus {
+    color: white;
+    background-color: #313136;
+    border: 1px solid black;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.button-wrapper {
+    text-align: center;
+}
+
+.btn {
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+    font-size: 15px;
+}
