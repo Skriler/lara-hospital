@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Db;
 
 use App\Models\Surgeon;
 use App\Http\Controllers\Controller;

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             SurgeonSeeder::class,
             TariffSeeder::class,
             PatientSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

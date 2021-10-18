@@ -38,7 +38,7 @@ class Patient extends Model
         'birth_date',
         'category',
         'gender',
-        '$operation_date',
+        'operation_date',
         'treatment_term',
         'surgeon_id',
         'tariff_id',

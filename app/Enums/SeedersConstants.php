@@ -16,7 +16,8 @@ class SeedersConstants
     const MIN_REHABILITATION_PRICE = 500;
     const MAX_REHABILITATION_PRICE = 10000;
 
-    const SURGEONS_COUNT = 10;
-    const TARIFFS_COUNT = 10;
-    const PATIENTS_COUNT = 30;
+    const SURGEONS_COUNT = 30;
+    const TARIFFS_COUNT = 30;
+    const PATIENTS_COUNT = 80;
+    const USERS_COUNT = 5;
 }

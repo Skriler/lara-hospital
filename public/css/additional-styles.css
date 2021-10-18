@@ -1,0 +1,80 @@
+body {
+    width: 100%;
+    background-color: #18181b;
+}
+
+h1 {
+    padding: 10px;
+    text-align: center;
+}
+
+.card-form {
+    color: white;
+    margin: 50px 20px;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: #1f1f23;
+}
+
+.form-control {
+    color: white;
+    background-color: #313136;
+    border: 1px solid black;
+}
+
+.form-control:focus {
+    color: white;
+    background-color: #313136;
+    border: 1px solid black;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.button-wrapper {
+    text-align: center;
+}
+
+.form-btn {
+    margin: 10px;
+    padding: 15px;
+    width: 150px;
+    font-size: 15px;
+}
+
+.navbar-btn {
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 30px;
+    background-color: #1f1f23;
+}
+
+.navbar-nav {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.dropdown-menu, .dropdown-item {
+    color: #9a9da0;
+    background-color: #343a40;
+}
+
+.dropdown-item:hover {
+    color: #ffffff;
+    background-color: #4f575e;
+}
+
+.table-wrapper {
+    color: white;
+    margin: 10px;
+    padding: 20px 20px 20px 50px;
+    border: 2px solid black;
+    background-color: #1f1f23;
+}
+
+.table-bordered {
+    border: 0;
+}

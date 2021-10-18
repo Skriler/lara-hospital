@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Db;
 
-use App\Models\Tariff;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TariffController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class TariffController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tariff  $tariff
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Tariff $tariff)
+    public function show(User $user)
     {
         //
     }
@@ -53,10 +53,10 @@ class TariffController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tariff  $tariff
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tariff $tariff)
+    public function edit(User $user)
     {
         //
     }
@@ -65,10 +65,10 @@ class TariffController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tariff  $tariff
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tariff $tariff)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -76,10 +76,10 @@ class TariffController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tariff  $tariff
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tariff $tariff)
+    public function destroy(User $user)
     {
         //
     }
