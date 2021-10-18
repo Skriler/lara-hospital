@@ -78,3 +78,21 @@ input::-webkit-inner-spin-button {
 .table-bordered {
     border: 0;
 }
+
+.card {
+    padding: 20px;
+    margin: 10px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.error {
+    color: #610101;
+    background-color: #fab4b4;
+}
+
+.success {
+    color: #286300;
+    background-color: #c5ff9e;
+}

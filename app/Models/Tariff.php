@@ -5,7 +5,7 @@ namespace App\Models;
 use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Tariff
@@ -35,8 +35,8 @@ class Tariff extends Model
         'rehabilitation_day_price',
     ];
 
-    public function patients(): BelongsToMany
+    public function patients(): HasMany
     {
-        return $this->belongsToMany(Patient::class);
+        return $this->hasMany(Patient::class);
     }
 }

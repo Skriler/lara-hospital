@@ -8,7 +8,8 @@
     <div class="container">
         <div class="card-form">
             <h1>Add Patient</h1>
-            <form method="POST" action="{{route('')}}">
+            <form method="POST" action="{{route('control-panel.patient.add')}}">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="surname">Surname</label>
                     <input type="text" name="surname" class="form-control" id="surname" placeholder="Enter surname" required>
@@ -25,8 +26,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="treatmentTerm">Treatment term</label>
-                    <input type="number" name="treatmentTerm" class="form-control" id="treatmentTerm" placeholder="Enter treatment term" required>
+                    <label for="treatment-term">Treatment term</label>
+                    <input type="number" name="treatment-term" class="form-control" id="treatment-term" placeholder="Enter treatment term" required>
                 </div>
                 <div class="form-group">
                     <label for="surgeon">Surgeon</label>
@@ -45,13 +46,21 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="birthDate">Birth Date</label>
-                    <input type="date" name="birthDate" class="form-control" id="birthDate"  value="now">
+                    <label for="birth-date">Birth Date</label>
+                    <input type="date" name="birth-date" class="form-control" id="birth-date"  value="now">
                 </div>
                 <div class="form-group">
-                    <label for="operationDate">Operation Date</label>
-                    <input type="date" name="operationDate" class="form-control" id="operationDate"  value="now" required>
+                    <label for="operation-date">Operation Date</label>
+                    <input type="date" name="operation-date" class="form-control" id="operation-date"  value="now" required>
                 </div>
+                @if($errors->any())
+                    {!! implode('', $errors->all('<div class="error card">:message</div>')) !!}
+                @endif
+                @if(Session::get('success'))
+                    <div class="success card">
+                        Added successfully
+                    </div>
+                @endif
                 <div class="button-wrapper">
                     <input type="submit" class="btn btn-dark form-btn" value="Submit">
                     <input type="reset" class="btn btn-dark form-btn" value="Reset">

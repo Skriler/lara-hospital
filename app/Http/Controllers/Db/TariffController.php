@@ -4,83 +4,47 @@ namespace App\Http\Controllers\Db;
 
 use App\Models\Tariff;
 use App\Http\Controllers\Controller;
+use App\Services\ValidationService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\ValidationException;
 
 class TariffController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
+     * @throws ValidationException
      */
-    public function index()
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $data = [
+            'code'                      => $request->input('code'),
+            'title'                     => $request->input('title'),
+            'operation_price'           => $request->input('operation-price'),
+            'rehabilitation_day_price'  => $request->input('rehabilitation-day-price'),
+        ];
+
+        $validatedData = ValidationService::validate('tariff_create', $data, 'control-panel.tariff.add');
+
+        Tariff::create($validatedData);
+        return Redirect::back()->with('success', 'Added successfully');
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function create()
+    public function destroy(Request $request): RedirectResponse
     {
-        //
-    }
+        $tariff = Tariff::where('title', $request->input('target-title'))->first();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if ($tariff->patients()->exists())
+            return Redirect::back()->with('error', 'Dependent patients exists');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Tariff  $tariff
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tariff $tariff)
-    {
-        //
-    }
+        $tariff->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tariff  $tariff
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tariff $tariff)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tariff  $tariff
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Tariff $tariff)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Tariff  $tariff
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Tariff $tariff)
-    {
-        //
+        return Redirect::back()->with('success', 'Deleted successfully');
     }
 }

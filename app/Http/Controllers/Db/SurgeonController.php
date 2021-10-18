@@ -4,83 +4,49 @@ namespace App\Http\Controllers\Db;
 
 use App\Models\Surgeon;
 use App\Http\Controllers\Controller;
+use App\Services\ValidationService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\ValidationException;
 
 class SurgeonController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
+     * @throws ValidationException
      */
-    public function index()
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $data = [
+            'code'          => $request->input('code'),
+            'surname'       => $request->input('surname'),
+            'birth_date'    => $request->input('birth-date'),
+            'category'      => $request->input('category'),
+            'gender'        => $request->input('gender'),
+            'home_phone'    => $request->input('home-phone'),
+        ];
+
+        $validatedData = ValidationService::validate('surgeon_create', $data, 'control-panel.surgeon.add');
+
+        Surgeon::create($validatedData);
+        return Redirect::back()->with('success', 'Added successfully');
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function create()
+    public function destroy(Request $request): RedirectResponse
     {
-        //
-    }
+        $surgeon = Surgeon::where('surname', $request->input('target-title'))->first();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if ($surgeon->patients()->exists())
+            return Redirect::back()->with('error', 'Dependent patients exists');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Surgeon  $surgeon
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Surgeon $surgeon)
-    {
-        //
-    }
+        $surgeon->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Surgeon  $surgeon
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Surgeon $surgeon)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Surgeon  $surgeon
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Surgeon $surgeon)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Surgeon  $surgeon
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Surgeon $surgeon)
-    {
-        //
+        return Redirect::back()->with('success', 'Deleted successfully');
     }
 }

@@ -18,7 +18,11 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
                 </div>
-
+                @if(Session::get('error'))
+                    <div class="error card">
+                        Data is invalid
+                    </div>
+                @endif
                 <div class="button-wrapper">
                     <input type="submit" class="btn btn-dark form-btn" value="Submit">
                     <input type="reset" class="btn btn-dark form-btn" value="Reset">

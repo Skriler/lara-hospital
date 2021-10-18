@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Db\PatientController;
+use App\Http\Controllers\Db\SurgeonController;
+use App\Http\Controllers\Db\TariffController;
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\ControlPanelController;
 use App\Http\Controllers\Web\UserSideController;
@@ -45,6 +48,10 @@ Route::prefix('control-panel')->middleware('isAdmin')
             ->name('control-panel.surgeon.add');
         Route::get('/delete',   [ControlPanelController::class, 'getDeleteSurgeonPage'])
             ->name('control-panel.surgeon.delete');
+        Route::post('/add',      [SurgeonController::class, 'store'])
+            ->name('control-panel.surgeon.add');
+        Route::post('/delete',   [SurgeonController::class, 'destroy'])
+            ->name('control-panel.surgeon.delete');
     });
 
     Route::group(['prefix' => 'tariff'], function () {
@@ -52,12 +59,20 @@ Route::prefix('control-panel')->middleware('isAdmin')
             ->name('control-panel.tariff.add');
         Route::get('/delete',   [ControlPanelController::class, 'getDeleteTariffPage'])
             ->name('control-panel.tariff.delete');
+        Route::post('/add',      [TariffController::class, 'store'])
+            ->name('control-panel.tariff.add');
+        Route::post('/delete',   [TariffController::class, 'destroy'])
+            ->name('control-panel.tariff.delete');
     });
 
     Route::group(['prefix' => 'patient'], function () {
         Route::get('/add',      [ControlPanelController::class, 'getAddPatientPage'])
             ->name('control-panel.patient.add');
         Route::get('/delete',   [ControlPanelController::class, 'getDeletePatientPage'])
+            ->name('control-panel.patient.delete');
+        Route::post('/add',      [PatientController::class, 'store'])
+            ->name('control-panel.patient.add');
+        Route::post('/delete',   [PatientController::class, 'destroy'])
             ->name('control-panel.patient.delete');
     });
 });

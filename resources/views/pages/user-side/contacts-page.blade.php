@@ -21,8 +21,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="homePhone">Home Phone</label>
-                    <input type="number" class="form-control" id="homePhone" placeholder="Enter home phone">
+                    <label for="home-phone">Home Phone</label>
+                    <input type="number" class="form-control" id="home-phone" placeholder="Enter home phone">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>

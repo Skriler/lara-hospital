@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Redirect;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
@@ -20,7 +20,7 @@ class AuthController extends Controller
         $user = User::where('username', $request->input('username'))->first();
 
         if ($user == null || $request->input('password') != $user->password)
-            return Redirect::route('user-side.auth.login');
+            return Redirect::back()->with('error', 'Data is invalid');
 
         Auth::login($user, true);
 
