@@ -13,19 +13,27 @@
             </li>
 
             <li class="nav-item {!! (Route::is('user-side.list.surgeon') ? "active" : '') !!}">
-                <a class="nav-link" href="{{route('user-side.list.surgeon')}}">Surgeons</a>
+                <a class="nav-link" href="{{route('user-side.list.table', ['table' => 'surgeons'])}}">
+                    Surgeons
+                </a>
             </li>
 
             <li class="nav-item {!! (Route::is('user-side.list.tariff') ? "active" : '') !!}">
-                <a class="nav-link" href="{{route('user-side.list.tariff')}}">Tariffs</a>
+                <a class="nav-link" href="{{route('user-side.list.table', ['table' => 'tariffs'])}}">
+                    Tariffs
+                </a>
             </li>
 
             <li class="nav-item {!! (Route::is('user-side.list.patient') ? "active" : '') !!}">
-                <a class="nav-link" href="{{route('user-side.list.patient')}}">Patients</a>
+                <a class="nav-link" href="{{route('user-side.list.table', ['table' => 'patients'])}}">
+                    Patients
+                </a>
             </li>
 
             <li class="nav-item {!! (Route::is('user-side.contacts') ? "active" : '') !!}">
-                <a class="nav-link" href="{{route('user-side.contacts')}}">Contacts</a>
+                <a class="nav-link" href="{{route('user-side.contacts')}}">
+                    Contacts
+                </a>
             </li>
         </ul>
         <div class="switch-side-button-wrapper">

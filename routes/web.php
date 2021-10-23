@@ -5,6 +5,7 @@ use App\Http\Controllers\Db\SurgeonController;
 use App\Http\Controllers\Db\TariffController;
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\ControlPanelController;
+use App\Http\Controllers\Web\ListController;
 use App\Http\Controllers\Web\UserSideController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,12 +34,11 @@ Route::get('logout',        [AuthController::class, 'logout'])
     ->name('user-side.auth.logout');
 
 Route::group(['prefix' => 'list'], function () {
-    Route::get('/surgeon',      [UserSideController::class, 'getSurgeonsListPage'])
-        ->name('user-side.list.surgeon');
-    Route::get('/tariff',       [UserSideController::class, 'getTariffsListPage'])
-        ->name('user-side.list.tariff');
-    Route::get('/patient',      [UserSideController::class, 'getPatientsListPage'])
-        ->name('user-side.list.patient');
+    Route::get('{table}', [ListController::class, 'getTableListPage'])
+        ->name('user-side.list.table');
+
+    Route::post('{table}', [ListController::class, 'getSortedTableListPage'])
+        ->name('user-side.list.sorted-table');
 });
 
 Route::prefix('control-panel')->middleware('isAdmin')

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Patient;
 use App\Models\Surgeon;
 use App\Models\Tariff;
-use Illuminate\Http\Request;
 
 class ControlPanelController extends Controller
 {

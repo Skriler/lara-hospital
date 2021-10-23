@@ -8,7 +8,8 @@
     <div class="container">
         <div class="card-form">
             <h1>Enter your data</h1>
-            <form>
+            <form method="POST" action="{{route('control-panel.tariff.add')}}">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="surname">Surname</label>
                     <input type="text" class="form-control" id="surname" placeholder="Enter surname">
