@@ -4,6 +4,7 @@ use App\Http\Controllers\Db\PatientController;
 use App\Http\Controllers\Db\SurgeonController;
 use App\Http\Controllers\Db\TariffController;
 use App\Http\Controllers\Web\AuthController;
+use App\Http\Controllers\Web\ContactsController;
 use App\Http\Controllers\Web\ControlPanelController;
 use App\Http\Controllers\Web\ListController;
 use App\Http\Controllers\Web\UserSideController;
@@ -23,15 +24,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserSideController::class, 'getMainPage'])
     ->name('user-side.main-page');
 
-Route::get('/contacts', [UserSideController::class, 'getContactsPage'])
-    ->name('user-side.contacts');
-
 Route::get('login',         [AuthController::class, 'getLoginPage'])
     ->name('user-side.auth.login');
 Route::post('login',        [AuthController::class, 'login'])
     ->name('user-side.auth.login');
 Route::get('logout',        [AuthController::class, 'logout'])
     ->name('user-side.auth.logout');
+
+Route::group(['prefix' => 'contacts'], function () {
+    Route::get('/', [ContactsController::class, 'getContactsPage'])
+        ->name('user-side.contacts');
+
+    Route::post('/', [ContactsController::class, 'createMail'])
+        ->name('user-side.create-mail');
+});
 
 Route::group(['prefix' => 'list'], function () {
     Route::get('{table}', [ListController::class, 'getTableListPage'])

@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 
-@section('title', 'Main page')
+@section('title', 'Contacts page')
 
 @section('content')
     @include('includes.main-navbar')
@@ -8,35 +8,34 @@
     <div class="container">
         <div class="card-form">
             <h1>Enter your data</h1>
-            <form method="POST" action="{{route('control-panel.tariff.add')}}">
+            <form method="POST" action="{{route('user-side.create-mail')}}">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="surname">Surname</label>
-                    <input type="text" class="form-control" id="surname" placeholder="Enter surname">
+                    <label for="user-email">Your email</label>
+                    <input type="text" class="form-control" id="user-email" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
-                    <label for="gender">Gender</label>
-                    <select class="form-control" id="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
+                    <label for="addressee-email">Addressee email</label>
+                    <input type="text" class="form-control" id="addressee-email" placeholder="Enter addressee email">
                 </div>
                 <div class="form-group">
-                    <label for="home-phone">Home Phone</label>
-                    <input type="number" class="form-control" id="home-phone" placeholder="Enter home phone">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Enter subject">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" placeholder="Enter email">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="4"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="theme">Theme</label>
-                    <input type="text" class="form-control" id="theme" placeholder="Enter surname">
-                </div>
-                <div class="form-group">
-                    <label for="question">Question</label>
-                    <textarea class="form-control" id="question" rows="4"></textarea>
-                </div>
+                @if(Session::get('error'))
+                    <div class="error card">
+                        {{Session::get('error')}}
+                    </div>
+                @endif
+                @if(Session::get('success'))
+                    <div class="success card">
+                        {{Session::get('success')}}
+                    </div>
+                @endif
                 <div class="button-wrapper">
                     <input type="submit" class="btn btn-dark form-btn" value="Submit">
                     <input type="reset" class="btn btn-dark form-btn" value="Reset">

@@ -31,7 +31,7 @@
                 @endif
                 @if(Session::get('success'))
                     <div class="success card">
-                        Added successfully
+                        {{Session::get('success')}}
                     </div>
                 @endif
                 <div class="button-wrapper">

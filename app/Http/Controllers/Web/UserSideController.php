@@ -15,9 +15,4 @@ class UserSideController extends Controller
     {
         return view('pages.user-side.main-page');
     }
-
-    public function getContactsPage()
-    {
-        return view('pages.user-side.contacts-page');
-    }
 }

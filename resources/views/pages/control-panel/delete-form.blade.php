@@ -20,12 +20,12 @@
                 </div>
                 @if(Session::get('error'))
                     <div class="error card">
-                        Dependent patients exists
+                        {{Session::get('error')}}
                     </div>
                 @endif
                 @if(Session::get('success'))
                     <div class="success card">
-                        Deleted successfully
+                        {{Session::get('success')}}
                     </div>
                 @endif
                 <div class="button-wrapper">

@@ -20,7 +20,7 @@
                 </div>
                 @if(Session::get('error'))
                     <div class="error card">
-                        Data is invalid
+                        {{Session::get('error')}}
                     </div>
                 @endif
                 <div class="button-wrapper">
