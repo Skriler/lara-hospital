@@ -1,6 +1,6 @@
 body {
     width: 100%;
-    background-color: #18181b;
+    background-color: #d4d4d4;
 }
 
 h1 {
@@ -9,11 +9,11 @@ h1 {
 }
 
 .card-form {
-    color: white;
+    color: black;
     margin: 50px 20px;
     padding: 20px;
-    border: 2px solid black;
-    background-color: #1f1f23;
+    border: 2px solid #666666;
+    background-color: #e6e6e6;
 }
 
 .card-title {
@@ -51,15 +51,15 @@ h1 {
 }
 
 .form-control {
-    color: white;
-    background-color: #313136;
-    border: 1px solid black;
+    color: black;
+    background-color: #d4d4d4;
+    border: 1px solid #666666;
 }
 
 .form-control:focus {
-    color: white;
-    background-color: #313136;
-    border: 1px solid black;
+    color: black;
+    background-color: #d4d4d4;
+    border: 1px solid #666666;
 }
 
 input::-webkit-outer-spin-button,
@@ -92,21 +92,21 @@ input::-webkit-inner-spin-button {
 }
 
 .dropdown-menu, .dropdown-item {
-    color: #9a9da0;
-    background-color: #343a40;
+    color: black;
+    background-color: #d4d4d4;
 }
 
 .dropdown-item:hover {
-    color: #ffffff;
-    background-color: #4f575e;
+    color: black;
+    background-color: #d4d4d4;
 }
 
 .table-wrapper {
-    color: white;
+    color: black;
     margin: 10px;
     padding: 20px 20px 20px 50px;
-    border: 2px solid black;
-    background-color: #1f1f23;
+    border: 2px solid #666666;
+    background-color: #e6e6e6;
 }
 
 .table-bordered {
@@ -117,7 +117,7 @@ input::-webkit-inner-spin-button {
     padding: 20px;
     margin: 10px;
     width: 100%;
-    border: 2px solid black;
+    border: 2px solid #666666;
     border-radius: 30px;
 }
 

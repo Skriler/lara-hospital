@@ -9,7 +9,7 @@
         <div class="table-wrapper">
             <div class="row table-responsive table-bordered table-striped">
                 <h1>{{ucfirst($title)}}</h1>
-                <table class="table table-dark">
+                <table class="table table-light">
                     <thead>
                     <tr>
                         @foreach($data_fields as $field)
