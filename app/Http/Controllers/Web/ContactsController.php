@@ -16,6 +16,11 @@ class ContactsController extends Controller
         return view('pages.user-side.contacts-page');
     }
 
+    public function getEmailUsPage()
+    {
+        return view('pages.user-side.email-us-page');
+    }
+
     /**
      * @param Request $request
      * @return RedirectResponse

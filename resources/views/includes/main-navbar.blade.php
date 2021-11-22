@@ -35,6 +35,12 @@
                     Contacts
                 </a>
             </li>
+
+            <li class="nav-item {!! (Route::is('user-side.contacts.email-us') ? "active" : '') !!}">
+                <a class="nav-link" href="{{route('user-side.contacts.email-us')}}">
+                    Email us
+                </a>
+            </li>
         </ul>
         <div class="switch-side-button-wrapper">
             @if(Auth::check())

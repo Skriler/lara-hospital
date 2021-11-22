@@ -29,7 +29,7 @@
                 </table>
 
                 <div class="pagination">
-                    {{ $data->links("pagination::bootstrap-4") }}
+                    {{ $data->appends($params)->links("pagination::bootstrap-4") }}
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                     </select>
                 </div>
                 @if($title === 'surgeons')
-                    @include('includes.surgeon-filters')
+                    @include('includes.surgeon-filters', $params)
                 @elseif($title === 'tariffs')
                     @include('includes.tariff-filters')
                 @elseif($title === 'patients')

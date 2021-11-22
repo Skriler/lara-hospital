@@ -35,8 +35,11 @@ Route::group(['prefix' => 'contacts'], function () {
     Route::get('/', [ContactsController::class, 'getContactsPage'])
         ->name('user-side.contacts');
 
-    Route::post('/', [ContactsController::class, 'createMail'])
-        ->name('user-side.create-mail');
+    Route::get('/email', [ContactsController::class, 'getEmailUsPage'])
+        ->name('user-side.contacts.email-us');
+
+    Route::post('/email', [ContactsController::class, 'createMail'])
+        ->name('user-side.contacts.create-mail');
 });
 
 Route::group(['prefix' => 'list'], function () {
